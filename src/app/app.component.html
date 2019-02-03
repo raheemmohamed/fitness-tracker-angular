@@ -1,2 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<router-outlet></router-outlet>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sideNav>
+            <!--Side navigation menu-->
+            <app-side-nav-list (closeSideMenuBar)="sideNav.close()"></app-side-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--Menu Header-->
+        <app-menu-header (sideMenuToggle)="sideNav.toggle()"></app-menu-header>
+        <!--main contents route-outlet-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

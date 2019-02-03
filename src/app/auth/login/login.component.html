@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<section class="Login-section">
+  <form [formGroup]="loginForm" (ngSubmit)="OnsubmitForm(loginForm.value)" 
+      fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
+      <mat-form-field class="example-full-width">
+          <input type="email" matInput placeholder="Enter Your Email" email formControlName="userEmail">
+          <mat-error *ngIf="loginForm.get('userEmail').errors?.required">
+            Please enter your email
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('userEmail').errors?.email">
+            Please enter your valid Email 
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="password" matInput placeholder="Enter Your password" formControlName="password" #passwordRef>
+             <mat-hint>Password min length 6</mat-hint>
+             <mat-hint align="end">{{passwordRef.value.length}} / 6</mat-hint>
+            <mat-error *ngIf="loginForm.get('password').errors?.required">
+               Password is required
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid"> Submit</button>
+
+
+  </form>
+</section>

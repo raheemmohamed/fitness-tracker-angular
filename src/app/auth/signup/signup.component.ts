@@ -18,10 +18,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.checkAgeFunc();
     this.signupFormGroup = this.formBuilder.group({
-      'email' : ['', [Validators.required, Validators.pattern(this.emailRegexPattern), Validators.email]],
-      'password' : ['', [Validators.required, Validators.minLength(6)]],
-      'birthdate': ['', [Validators.required]],
-      'licenAgree': ['', [Validators.required]]
+      email : ['', [Validators.required, Validators.pattern(this.emailRegexPattern), Validators.email]],
+      password : ['', [Validators.required, Validators.minLength(6)]],
+      birthdate: ['', [Validators.required]],
+      licenAgree: ['', [Validators.required]]
     });
   }
   checkAgeFunc() {

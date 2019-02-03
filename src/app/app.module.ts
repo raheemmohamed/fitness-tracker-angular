@@ -14,6 +14,10 @@ import { NewTrainingComponent } from './training/new-training/new-training.compo
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SideNavListComponent } from './navigation/side-nav-list/side-nav-list.component';
+import { MenuHeaderComponent } from './navigation/menu-header/menu-header.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CurrentTrainingComponent,
     PastTrainingComponent,
     NewTrainingComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SideNavListComponent,
+    MenuHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

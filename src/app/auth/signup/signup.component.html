@@ -3,11 +3,9 @@
     [formGroup]="signupFormGroup" (ngSubmit)="submitForm(signupFormGroup.value)">
     <mat-form-field class="example-full-width">
       <input type="email" matInput placeholder="Enter Your Email" email formControlName="email">
-
       <mat-error *ngIf="signupFormGroup.get('email').errors?.required">
         Please enter your email
       </mat-error>
-
       <mat-error *ngIf="signupFormGroup.get('email').errors?.email">
         Please enter your valid Email 
       </mat-error>
