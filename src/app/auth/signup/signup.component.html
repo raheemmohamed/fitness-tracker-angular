@@ -1,3 +1,43 @@
-<p>
-  signup works!
-</p>
+<section class="signup-section">
+  <form class="signup-Form" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" 
+    [formGroup]="signupFormGroup" (ngSubmit)="submitForm(signupFormGroup.value)">
+    <mat-form-field class="example-full-width">
+      <input type="email" matInput placeholder="Enter Your Email" email formControlName="email">
+
+      <mat-error *ngIf="signupFormGroup.get('email').errors?.required">
+        Please enter your email
+      </mat-error>
+
+      <mat-error *ngIf="signupFormGroup.get('email').errors?.email">
+        Please enter your valid Email 
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input type="password" matInput placeholder="Enter Your password" formControlName="password" #passwordRef>
+       <mat-hint>Password min length 6</mat-hint>
+       <mat-hint align="end">{{passwordRef.value.length}} / 6</mat-hint>
+      <mat-error *ngIf="signupFormGroup.get('password').errors?.required">
+         Password is required
+      </mat-error>
+      <mat-error *ngIf="signupFormGroup.get('password').errors?.minLength">
+          your password is need more than 6 characters
+       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthdate" [max]="maxDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="signupFormGroup.get('birthdate').errors?.required">
+         birthdate is Required
+       </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="licenAgree" color="primary">I Agree with Terms & Condition</mat-checkbox>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="!signupFormGroup.valid">submit</button>
+  
+  
+  </form>
+</section>
