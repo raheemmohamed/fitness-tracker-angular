@@ -1,0 +1,11 @@
+<section class="popup-confirm">
+  <h2 mat-dialog-title>Confirm</h2>
+  <mat-dialog-content>
+    <p>Are you sure, You want to stop training? you almost done 
+      {{passeddata.progress}}%</p>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout fxLayoutAlign="flex-end">
+    <button mat-button [mat-dialog-close]="true">Yes</button>
+    <button mat-button [mat-dialog-close]="false">No</button>
+  </mat-dialog-actions>
+</section>

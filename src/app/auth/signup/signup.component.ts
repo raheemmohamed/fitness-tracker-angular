@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,10 @@ export class SignupComponent implements OnInit {
 
   emailRegexPattern: any = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authservie: AuthService
+    ) { }
 
   ngOnInit() {
     this.checkAgeFunc();
@@ -31,6 +35,12 @@ export class SignupComponent implements OnInit {
 
   submitForm(formSubmitValue) {
     console.log(formSubmitValue);
+    const registerFormValue = formSubmitValue;
+
+    this.authservie.registerusers({
+      email: registerFormValue.email,
+      password: registerFormValue.password,
+    });
   }
 
 }

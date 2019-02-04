@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SideNavListComponent } from './navigation/side-nav-list/side-nav-list.component';
 import { MenuHeaderComponent } from './navigation/menu-header/menu-header.component';
+import { ConfirmModelPopupComponent } from './training/popups/confirm-model-popup/confirm-model-popup.component';
+import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { MenuHeaderComponent } from './navigation/menu-header/menu-header.compon
     NewTrainingComponent,
     WelcomeComponent,
     SideNavListComponent,
-    MenuHeaderComponent
+    MenuHeaderComponent,
+    ConfirmModelPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { MenuHeaderComponent } from './navigation/menu-header/menu-header.compon
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService, TrainingService],
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmModelPopupComponent]
 })
 export class AppModule { }
