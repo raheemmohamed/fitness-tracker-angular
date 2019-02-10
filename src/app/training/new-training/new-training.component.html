@@ -1,16 +1,18 @@
 <section class="new-training-section" fxLayout fxLayoutAlign="center">
   <mat-card fxFlex="400px" fxFlex.xs="100%">
-    <mat-card-title color="primary" fxLayoutAlign="center">Time to start Workout</mat-card-title>
-    <mat-card-content fxLayoutAlign="center">
-        <mat-form-field>
-          <mat-select placeholder="Select Your Excersice">
-            <mat-option *ngFor="let data of mockData" value='{{data.name}}'>{{data.name}}</mat-option>
-          </mat-select>
-            <mat-hint>Select Your Excersie</mat-hint>
-          </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center">
-        <button type="submit" mat-raised-button color="primary" (click)="excerciseStart()"> Start Training</button>
-    </mat-card-actions>
+    <form  [formGroup]="trainingFormGroup" (ngSubmit)="trainingSubmit(trainingFormGroup.value)">
+      <mat-card-title color="primary" fxLayoutAlign="center">Time to start Workout</mat-card-title>
+      <mat-card-content fxLayoutAlign="center">
+          <mat-form-field>
+            <mat-select placeholder="Select Your Excersice" formControlName="excersiseDropdown">
+              <mat-option *ngFor="let data of mockData" [value]="data.id">{{data.name}}</mat-option>
+            </mat-select>
+              <mat-hint>Select Your Excersie</mat-hint>
+            </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+          <button type="submit" mat-raised-button color="primary" > Start Training</button>
+      </mat-card-actions>
+    </form>
   </mat-card>
 </section>
